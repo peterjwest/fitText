@@ -1,0 +1,76 @@
+<!doctype html>
+<link href="style.css" rel="stylesheet" type="text/css">
+<title>fitText Demo</title>
+<div id="page">
+  <div>
+  <a class="invert" href="#invert">Invert</a>
+  <p class="chars">...</p>
+  </div>
+  <div class="left half">
+    <div class="padded">
+      <div id="circle">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Fusce eu orci quis diam laoreet ultricies eget at augue.
+        Cras sapien massa, imperdiet at euismod malesuada, aliquet non diam. Donec justo lectus,
+        placerat vitae auctor in, ultricies sit amet purus. Ut rutrum elit sed odio porttitor aliquet.
+        Praesent vitae tincidunt nunc. Sed in suscipit velit. Suspendisse posuere, erat sed tempor pharetra,
+        lacus erat suscipit ante, sed sodales augue velit sed purus. Maecenas vitae odio lacus,
+        a tempus mauris. Integer sit amet leo eu nisi sodales luctus.
+        Quisque ultrices libero aliquet nisi ornare vulputate.
+        Proin lacinia sem ac velit sollicitudin nec vulputate magna cursus.
+        Aliquam facilisis, tortor a elementum porta, quam libero lobortis diam, vitae rutrum nunc purus in turpis.
+      </div>
+      <div id="trapesium">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Fusce eu orci quis diam laoreet ultricies eget at augue.
+        Cras sapien massa, imperdiet at euismod malesuada, aliquet non diam. Donec justo lectus,
+        placerat vitae auctor in, ultricies sit amet purus. Ut rutrum elit sed odio porttitor aliquet.
+        Praesent vitae tincidunt nunc. Sed in suscipit velit. Suspendisse posuere, erat sed tempor pharetra,
+        lacus erat suscipit ante, sed sodales augue velit sed purus.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Fusce eu orci quis diam laoreet ultricies eget at augue.
+        Cras sapien massa, imperdiet at euismod malesuada, aliquet non diam. Donec justo lectus,
+        placerat vitae auctor in, ultricies sit amet purus. Ut rutrum elit sed odio porttitor aliquet.
+        Praesent vitae tincidunt nunc. Sed in suscipit velit. Suspendisse posuere, erat sed tempor pharetra,
+        lacus erat suscipit ante, sed sodales augue velit sed purus.
+      </div>
+    </div>
+  </div>
+  <div class="left half">
+    <div class="padded">
+      <div id="wave">
+        In hac habitasse platea dictumst. Curabitur et mi augue. Curabitur vel sapien magna,
+        non porttitor diam. Nunc orci neque, vestibulum in consectetur et, faucibus sit amet metus.
+        Quisque ut dui hendrerit nulla sollicitudin mollis a ut massa.
+        Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+        Pellentesque et libero eu ante facilisis feugiat nec ut nisl. In hac habitasse platea dictumst.
+        Cras ullamcorper sagittis enim, eget rutrum metus commodo nec.
+        Fusce posuere augue sit amet turpis imperdiet vitae consequat urna molestie.
+        Phasellus vel sapien ut nisi commodo sollicitudin. Nunc nec pretium nisl.
+        Donec pretium enim sed massa placerat porta. Maecenas ac nisl eros.
+        Praesent vitae tincidunt nunc. Sed in suscipit velit. Suspendisse posuere, erat sed tempor pharetra,
+        lacus erat suscipit ante, sed sodales augue velit sed purus. Maecenas vitae odio lacus,
+        a tempus mauris. Integer sit amet leo eu nisi sodales luctus.
+        Quisque ultrices libero aliquet nisi ornare vulputate.
+        Proin lacinia sem ac velit sollicitudin nec vulputate magna cursus.
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="fitText.jquery.js"></script>
+<script>
+  $(function() {
+    var wave = function(h) { return (Math.sin(Math.PI * 5 * h) + 1) / 6; };
+    var slant = function(h) { return (1 - h) / 2; };
+    $("#circle").fitText('circular', {align: 'center', font: {min: 14, max: 25}});
+    $("#trapesium").fitText(slant, {align: 'justify'});
+    $("#wave").fitText({left: wave, right: 'none'}, {align: 'justify'});
+
+    $(".invert").click(function() { $("#page").toggleClass("inverted"); });
+
+    var chars = [];
+    for (c in $.fn.fitText.chars) chars.push(c);
+    $(".chars").text(chars.join("")+" ("+chars.length+")");
+  });
+</script>

@@ -1,0 +1,24 @@
+#page { width: 800px; }
+#page.inverted  span { background: #333; color: white; }
+
+.left { float: left; }
+.right { float: right; }
+.half { width: 50%; }
+.quarter { width: 25%; }
+.three_quarters { width: 25%; }
+.padded { padding: 0px 10px; }
+#circle { width: 350px; height: 350px; }
+#wave { width: 350px; height: 750px; }
+#trapesium { width: 350px; height: 350px; }
+
+.invert { display: inline-block; background: #333; color: white; text-decoration: none; margin: 0px 3px; padding: 2px 5px; }
+.chars { display: inline-block; background: #ddd; margin: 0px 3px; padding: 2px 5px; }
+
+.justify {
+  text-align: justify;
+}
+.justify:after {
+  content: "";
+  display: inline-block;
+  width: 100%;
+}
